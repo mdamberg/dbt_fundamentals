@@ -1,0 +1,13 @@
+default:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      threads: 16
+      account: CU98196
+      user: ADMIN
+      database: analytics
+      warehouse: transforming
+      schema: dbt_mdamberg
+      password: nzv3dba*tgn3jdf3DUF
+      role: Transformer
