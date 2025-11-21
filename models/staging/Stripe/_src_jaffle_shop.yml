@@ -1,8 +1,11 @@
 version: 2
 
 sources:
-  - name: stripe
-    database: raw
-    schema: stripe
+  - name: jaffle_shop
+    database: raw              -- The database where the source tables are located
+    schema: jaffle_shop
     tables:
       - name: payment
+      - name: customers
+      - name: orders
+      - name: products
