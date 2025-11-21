@@ -2,10 +2,24 @@ version: 2
 
 sources:
   - name: jaffle_shop
-    database: raw              -- The database where the source tables are located
+    database: raw
     schema: jaffle_shop
+    loaded_at_field: _etl_loaded_at
+    freshness:
+      warn_after:
+        count: 24
+        period: hour
+      error_after:
+        count: 48
+        period: hour
     tables:
-      - name: payment
       - name: customers
       - name: orders
-      - name: products
+
+  - name: stripe
+    database: raw
+    schema: stripe
+    loaded_at_field: created
+    tables:
+      - name: payment
+            
