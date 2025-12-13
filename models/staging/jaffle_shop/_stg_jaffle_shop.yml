@@ -1,0 +1,12 @@
+
+
+# Data Tests
+
+models:
+  - name: stg_jaffle_shop_customers
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+          
