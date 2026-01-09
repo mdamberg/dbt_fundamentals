@@ -14,7 +14,7 @@ total_payments as (
     select
         customer_id,
         sum(p.amount) as lifetime_value
-    from {{ ref('stg_stripe_payments') }} p 
+    from {{ ref('stg_stripe_payment') }} p 
     join {{ ref('stg_jaffle_shop_orders') }} o 
         on p.order_id = o.order_id
     group by customer_id

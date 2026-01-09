@@ -5,6 +5,6 @@ select
 from {{ ref('stg_jaffle_shop_orders') }} so
 join {{ ref('stg_jaffle_shop_customers') }} sc 
     on so.customer_id = sc.customer_id
-join {{ ref('stg_stripe_payments') }} p
+join {{ ref('stg_stripe_payment') }} p
     on so.order_id = p.order_id
     
