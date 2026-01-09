@@ -9,4 +9,27 @@ models:
         data_tests:
           - unique
           - not_null
-          
+
+#VALID ARGUMENTS TEST: ONLY THE SELECTED VALUYES ARE ALLOWED IN THE STATUS FIELD
+# CHECK THE TARGET > GENERIC TESTS > FOR VALUES FROM TESTS THAT HAVE BEEN RUN
+  - name: stg_jaffle_shop_orders
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: status
+        data_tests:
+          - accepted_values:
+              arguments: 
+                values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+
+# Relationship Tests: This checks to make sure that foreign key relationships are valid to
+# the primary key. ITS EXPECTED THAT EVERY CUSTOMER ID IN THE ORDERS MODEL HAS A 
+# CUSTOMER ID IN THE CUNSTOMERS MODEL
+      - name: customer_id # the key in orders table
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_jaffle_shop_customers')
+                field: customer_id

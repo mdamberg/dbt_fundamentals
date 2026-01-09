@@ -4,7 +4,7 @@ default:
     dev:
       type: snowflake
       threads: 16
-      account: CU98196
+      account: BC15382
       user: ADMIN
       database: analytics
       warehouse: transforming
