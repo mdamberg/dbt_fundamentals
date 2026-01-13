@@ -11,3 +11,21 @@ default:
       schema: dbt_mdamberg
       password: nzv3dba*tgn3jdf3DUF
       role: Transformer
+
+# ------------------------- #
+# HomeMetrics Project yml   #
+# --------------------------#
+
+home_metrics_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: metrics_user
+      password: CHANGE_ME_TO_SECURE_PASSWORD
+      port: 5432
+      dbname: home_metrics
+      schema: public
+      threads: 4
+      keepalives_idle: 0
