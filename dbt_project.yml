@@ -1,4 +1,8 @@
 
+# ---------------------------------------------- #
+# DBT Fundamentals Course Project yml            #
+# ---------------------------------------------- #
+
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
@@ -39,4 +43,20 @@ models:
     marts:
       +materialized: view
 
-    
+
+# ------------------------- #
+# HomeMetrics Project yml   #
+# --------------------------#
+
+home_metrics_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: metrics_user
+      password: CHANGE_ME_TO_SECURE_PASSWORD
+      port: 5432
+      dbname: home_metrics
+      schema: public
+      keepalives_idle: 0
